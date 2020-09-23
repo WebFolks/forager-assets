@@ -27,7 +27,7 @@
                                         </div>
                                         <a href="https://forager.ai/sign-in" class="nav__link w-nav-link">Log In</a>
                                         <a href="https://forager.ai/sign-in" class="nav__link hidden w-nav-link">Sign in</a>
-                                        <a href="#" data-w-id="ec4aeda7-663f-b49e-b681-78d8d1b7384e" class="nav__btn w-nav-link ">Request access</a>
+                                        <a href="#" onclick="showModalDialog()" class="nav__btn w-nav-link ">Request access</a>
                                       </nav>
                                       <div class="menu-btn w-nav-button">
                                       <div class="menu-btn__line"></div>
@@ -42,7 +42,7 @@
                                   <div class="cta__cont">
                                     <h2 class="section__title section__title--white">Get Started with Forager Today</h2>
                                     <p class="cta__desc">Turbo charge your sales pipeline</p>
-                                    <div class="cta__btn"><a data-w-id="0605a95f-861c-c66e-4821-ac29d52e9e42" href="#" class="btn btn--green w-button">Request access</a></div>
+                                    <div class="cta__btn"><a href="#" onclick="showModalDialog()"  class="btn btn--green w-button">Request access</a></div>
                                   </div>
                                 </div>
                               </div>
@@ -95,5 +95,21 @@
     footer.innerHTML = bottomTemplate;
     body.insertBefore(nav, body.firstChild);
     body.appendChild(footer);
+  }
+
+  function showModalDialog() {
+    const modalButton = document.getElementsByClassName('button ib')[0];
+
+    eventFire(modalButton, 'click');
+  }
+
+  function eventFire(el, etype) {
+    if (el.fireEvent) {
+      el.fireEvent('on' + etype);
+    } else {
+      var evObj = document.createEvent('Events');
+      evObj.initEvent(etype, true, false);
+      el.dispatchEvent(evObj);
+    }
   }
 })();
