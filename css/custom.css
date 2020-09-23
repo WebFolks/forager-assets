@@ -1,0 +1,83 @@
+@import './custom.webflow-normalize.css';
+@import './custom.webflow-base.css';
+@import './custom.webflow.css';
+
+/*Disable original UI*/
+footer,
+.nav-container,
+section#cta {
+  display: none !important;
+}
+
+/* #foragerFooter {
+  margin: 0 -24px;
+}
+
+#foragerFooter .footer {
+  padding: 0 24px;
+} */
+
+* {
+  font-variant-ligatures: none;
+}
+
+.page-body {
+  background: #faf9ff;
+}
+
+.masthead {
+  padding-top: 145px;
+  padding-bottom: 145px;
+  background-image: url(https://uploads-ssl.webflow.com/5f3ce7d38b0a42cbcba07bf6/5f3cf80df51c3f1a5b22c63a_CTA%20Background.png);
+  background-position: 50% 50%;
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+  text-align: center;
+  background-color: transparent !important;
+  width: calc(100% - 48px);
+  max-width: 1218px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 24px;
+  padding-left: 24px;
+  box-sizing: border-box;
+}
+
+.masthead h1,
+.masthead h2 {
+  font-size: 40px !important;
+  line-height: 47px !important;
+  font-weight: 500 !important;
+}
+
+.masthead h1 {
+  color: #fff !important;
+}
+
+.masthead h2 {
+  margin-top: 30px;
+  color: hsla(0, 0%, 100%, 0.8) !important;
+  font-size: 18px !important;
+  line-height: 1.78em !important;
+}
+
+.nav__link:hover .dropdown__content.w-dropdown-list {
+  display: block !important;
+}
+
+/* Middle smoothing level, works in 99% cases */
+body {
+  padding-top: 170px;
+  font-family: Circularstd, sans-serif;
+  color: rgba(54, 51, 107, 0.8);
+  font-size: 18px;
+  line-height: 1.78em !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+  background: #faf9ff;
+}
+
+body * {
+  font-family: Circularstd, sans-serif !important;
+}
