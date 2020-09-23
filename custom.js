@@ -27,7 +27,7 @@
                                         </div>
                                         <a href="https://forager.ai/sign-in" class="nav__link w-nav-link">Log In</a>
                                         <a href="https://forager.ai/sign-in" class="nav__link hidden w-nav-link">Sign in</a>
-                                        <a href="#" onclick="showModalDialog()" class="nav__btn w-nav-link ">Request access</a>
+                                        <a href="#" onclick="window.showModalDialog()" class="nav__btn w-nav-link ">Request access</a>
                                       </nav>
                                       <div class="menu-btn w-nav-button">
                                       <div class="menu-btn__line"></div>
@@ -42,7 +42,7 @@
                                   <div class="cta__cont">
                                     <h2 class="section__title section__title--white">Get Started with Forager Today</h2>
                                     <p class="cta__desc">Turbo charge your sales pipeline</p>
-                                    <div class="cta__btn"><a href="#" onclick="showModalDialog()"  class="btn btn--green w-button">Request access</a></div>
+                                    <div class="cta__btn"><a href="#" onclick="window.showModalDialog()"  class="btn btn--green w-button">Request access</a></div>
                                   </div>
                                 </div>
                               </div>
@@ -97,13 +97,13 @@
     body.appendChild(footer);
   }
 
-  function showModalDialog() {
+  window.showModalDialog = function showModalDialog() {
     const modalButton = document.getElementsByClassName('button ib')[0];
 
-    eventFire(modalButton, 'click');
-  }
+    window.eventFire(modalButton, 'click');
+  };
 
-  function eventFire(el, etype) {
+  window.eventFire = function eventFire(el, etype) {
     if (el.fireEvent) {
       el.fireEvent('on' + etype);
     } else {
@@ -111,5 +111,5 @@
       evObj.initEvent(etype, true, false);
       el.dispatchEvent(evObj);
     }
-  }
+  };
 })();
