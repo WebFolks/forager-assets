@@ -7,7 +7,7 @@
     const navigationTemplate = `<div class="nav-wrap nav-wrap--white">
                                   <div data-collapse="medium" data-animation="default" data-duration="400" data-w-id="6f7e9c9c-4db8-484b-e861-52dd10233f73" role="banner" class="nav w-nav">
                                     <div class="nav__container">
-                                      <a href="https://forager.ai/" aria-current="page" class="brand w-nav-brand w--current">
+                                      <a href="/" aria-current="page" class="brand w-nav-brand w--current">
                                       <img src="https://uploads-ssl.webflow.com/5f3ce7d38b0a42cbcba07bf6/5f3cf834a3374f7acc475e92_Logo.svg" alt="" class="brand__logo">
                                       </a>
                                       <nav role="navigation" class="nav__menu w-nav-menu">
@@ -52,7 +52,10 @@
                                 <div class="container">
                                   <div class="row">
                                     <div class="col footer__col">
-                                      <div class="footer__cont"><a href="https://forager.ai/" aria-current="page" class="footer__brand w-inline-block w--current"><img src="https://uploads-ssl.webflow.com/5f3ce7d38b0a42cbcba07bf6/5f3cf834a3374f7acc475e92_Logo.svg" alt="" class="footer__img"></a>
+                                      <div class="footer__cont">
+                                        <a href="/" aria-current="page" class="footer__brand w-inline-block w--current">
+                                          <img src="https://uploads-ssl.webflow.com/5f3ce7d38b0a42cbcba07bf6/5f3cf834a3374f7acc475e92_Logo.svg" alt="" class="footer__img">
+                                        </a>
                                         <p class="footer__desc">Your Always-On B2B Sales Engine</p>
                                       </div>
                                     </div>
