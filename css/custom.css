@@ -21,26 +21,19 @@ section#cta {
   font-variant-ligatures: none;
 }
 
-.page-body {
-  background: #faf9ff;
+.page-body,
+body,
+main {
+  background: transparent !important;
+}
+
+main {
+  background: linear-gradient(180deg, #f2f2f2, #fff);
+  background-color: transparent !important;
 }
 
 .masthead {
-  padding-top: 145px;
-  padding-bottom: 145px;
-  background-image: url(https://uploads-ssl.webflow.com/5f3ce7d38b0a42cbcba07bf6/5f3cf80df51c3f1a5b22c63a_CTA%20Background.png);
-  background-position: 50% 50%;
-  background-size: auto 100%;
-  background-repeat: no-repeat;
-  text-align: center;
-  background-color: transparent !important;
-  width: calc(100% - 48px);
-  max-width: 1218px;
-  margin-right: auto;
-  margin-left: auto;
-  padding-right: 24px;
-  padding-left: 24px;
-  box-sizing: border-box;
+  background: transparent !important;
 }
 
 .masthead h1,
@@ -48,21 +41,32 @@ section#cta {
   font-size: 40px !important;
   line-height: 47px !important;
   font-weight: 500 !important;
+  margin: 0 auto !important;
 }
 
 .masthead h1 {
-  color: #fff !important;
+  color: #0a074c !important;
+  max-width: 600px;
 }
 
 .masthead h2 {
-  margin-top: 30px;
-  color: hsla(0, 0%, 100%, 0.8) !important;
+  margin-top: 30px !important;
+  color: rgba(54, 51, 107, 0.8) !important;
   font-size: 18px !important;
   line-height: 1.78em !important;
+  max-width: 750px;
 }
 
 .nav__link:hover .dropdown__content.w-dropdown-list {
   display: block !important;
+}
+
+.listing-card {
+  box-shadow: 0 10px 15px -1px rgba(4, 0, 70, 0.1) !important;
+}
+
+#modals {
+  z-index: 999;
 }
 
 /* Middle smoothing level, works in 99% cases */
