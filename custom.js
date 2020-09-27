@@ -13,7 +13,7 @@
                                       <nav role="navigation" class="nav__menu w-nav-menu">
                                         <a href="https://forager.ai/#product" class="nav__link w-nav-link">Product</a>
                                         <a href="https://forager.ai/pricing" class="nav__link w-nav-link">Pricing</a>
-                                        <a href="/" class="class="nav__link w-nav-link w--current"">Integrations</a>
+                                        <a href="/" class="nav__link w-nav-link w--current">Integrations</a>
                                         <div class="nav__link">
                                           <div data-hover="1" data-delay="0" data-w-id="ec4aeda7-663f-b49e-b681-78d8d1b7383a" class="dropdown w-dropdown">
                                           <div class="dropdown__link w-dropdown-toggle">
