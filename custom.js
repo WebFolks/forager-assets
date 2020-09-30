@@ -3,6 +3,7 @@
   if (!foragerNav) {
     const body = document.getElementsByTagName('body')[0];
     const nav = document.createElement('div');
+    const modal = document.createElement('div');
     const footer = document.createElement('div');
     const navigationTemplate = `<div class="nav-wrap nav-wrap--white">
                                   <div data-collapse="medium" data-animation="default" data-duration="400" data-w-id="6f7e9c9c-4db8-484b-e861-52dd10233f73" role="banner" class="nav w-nav">
@@ -37,7 +38,6 @@
                                     </div>
                                   </div>
                                 </div>`;
-
     const bottomTemplate = `<div class="section cta">
                                 <div class="container hp">
                                   <div class="cta__cont">
@@ -90,13 +90,33 @@
                                   <p class="footer__desc-sm">© 2020 forager.ai all right reserved</p>
                                 </div>
                               </div>`;
+    const modalTemplate = `<div class="modal">
+                            <div data-w-id="782c8c75-a74d-89da-41fe-c11ac8dd2587" class="modal__bg"></div>
+                            <div class="modal__form w-form">
+                              <form id="email-form" name="email-form" data-name="Email Form" class="request-form">
+                                <div class="request-form__header">
+                                  <h3 class="request-form__title">Fill the form below to get <br>request access</h3>
+                                </div><img src="images/close-icon.svg" data-w-id="782c8c75-a74d-89da-41fe-c11ac8dd2591" alt="" class="form-ic"><input type="text" class="request-form__t-field w-input" maxlength="256" name="Name-2" data-name="Name 2" placeholder="Full Name" id="Name-2" required=""><input type="email" class="request-form__t-field w-input" maxlength="256" name="Email-2" data-name="Email 2" placeholder="Email Address" id="Email-2" required=""><input type="text" class="request-form__t-field w-input" maxlength="256" data-name="" placeholder="Company Name" id="node" required=""><input type="text" class="request-form__t-field w-input" maxlength="256" data-name="" placeholder="Website URL" id="node-2" required="">
+                                <div class="request-form__btn"><input type="submit" value="Request access" data-wait="Please wait..." class="btn btn--green width w-button"></div>
+                              </form>
+                              <div class="w-form-done">
+                                <div>Thank you! Your submission has been received!</div>
+                              </div>
+                              <div class="w-form-fail">
+                                <div>Oops! Something went wrong while submitting the form.</div>
+                              </div>
+                            </div>
+                          </div>`;
 
     nav.setAttribute('id', 'foragerNav');
     footer.setAttribute('id', 'foragerFooter');
+    modal.setAttribute('id', 'modalForager');
     nav.innerHTML = navigationTemplate;
     footer.innerHTML = bottomTemplate;
+    modal.innerHTML = modalTemplate;
     body.insertBefore(nav, body.firstChild);
     body.appendChild(footer);
+    body.appendChild(modal);
   }
 
   window.showModalDialog = function showModalDialog() {
