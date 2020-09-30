@@ -93,15 +93,24 @@
     const modalTemplate = `<div class="modal" id="webflowModal">
                             <div class="modal__bg" onclick="window.hideModalDialog()"></div>
                             <div class="modal__form w-form">
-                              <form id="email-form" name="email-form" data-name="Email Form" class="request-form">
+                              <form id="email-form" name="email-form" data-name="Email Form" class="request-form" onsubmit="window.submitAccessForm()">
                                 <div class="request-form__header">
                                   <h3 class="request-form__title">Fill the form below to get <br>request access</h3>
-                                </div><img onclick="window.hideModalDialog()" src="https://uploads-ssl.webflow.com/5f3ce7d38b0a42cbcba07bf6/5f3e5b971a9b6be0aa576f07_close-icon.svg" alt="" class="form-ic"><input type="text" class="request-form__t-field w-input" maxlength="256" name="Name-2" data-name="Name 2" placeholder="Full Name" id="Name-2" required=""><input type="email" class="request-form__t-field w-input" maxlength="256" name="Email-2" data-name="Email 2" placeholder="Email Address" id="Email-2" required=""><input type="text" class="request-form__t-field w-input" maxlength="256" data-name="" placeholder="Company Name" id="node" required=""><input type="text" class="request-form__t-field w-input" maxlength="256" data-name="" placeholder="Website URL" id="node-2" required="">
-                                <div class="request-form__btn"><input type="submit" value="Request access" data-wait="Please wait..." class="btn btn--green width w-button"></div>
+                                </div>
+                                  <img onclick="window.hideModalDialog()" src="https://uploads-ssl.webflow.com/5f3ce7d38b0a42cbcba07bf6/5f3e5b971a9b6be0aa576f07_close-icon.svg" alt="" class="form-ic">
+                                  <input type="text" class="request-form__t-field w-input" maxlength="256" name="Name-2" data-name="Name 2" placeholder="Full Name" id="Name-2" required="">
+                                  <input type="email" class="request-form__t-field w-input" maxlength="256" name="Email-2" data-name="Email 2" placeholder="Email Address" id="Email-2" required="">
+                                  <input type="text" class="request-form__t-field w-input" maxlength="256" data-name="" placeholder="Company Name" id="node" required="">
+                                  <input type="text" class="request-form__t-field w-input" maxlength="256" data-name="" placeholder="Website URL" id="node-2" required="">
+                                <div class="request-form__btn">
+                                  <input type="submit" value="Request access" data-wait="Please wait..." class="btn btn--green width w-button">
+                                </div>
                               </form>
+
                               <div class="w-form-done">
                                 <div>Thank you! Your submission has been received!</div>
                               </div>
+
                               <div class="w-form-fail">
                                 <div>Oops! Something went wrong while submitting the form.</div>
                               </div>
@@ -129,5 +138,11 @@
     const webflowModal = document.getElementById('webflowModal');
 
     webflowModal.classList.remove('modal-visible');
+  };
+
+  window.submitAccessForm = function submitAccessForm() {
+    this.preventDefault();
+    this.stopPropagation();
+    console.log('stopped');
   };
 })();
