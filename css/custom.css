@@ -85,3 +85,8 @@ body {
 body * {
   font-family: Circularstd, sans-serif !important;
 }
+
+.modal.modal-visible {
+  opacity: 1 !important;
+  display: flex !important;
+}
