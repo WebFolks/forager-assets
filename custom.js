@@ -106,11 +106,9 @@
                                   <input type="submit" id="formSubmitButton" value="Request access" data-wait="Please wait..." class="btn btn--green width w-button">
                                 </div>
                               </form>
-
                               <div class="w-form-done" id="w-form-done">
                                 <div>Thank you! Your submission has been received!</div>
                               </div>
-
                               <div class="w-form-fail" id="w-form-fail">
                                 <div>Oops! Something went wrong while submitting the form.</div>
                               </div>
@@ -129,15 +127,20 @@
   }
 
   window.showModalDialog = function showModalDialog() {
-    const webflowModal = document.getElementById('webflowModal');
+    const webflowModal = document.getElementById('modalForager');
 
     webflowModal.classList.add('modal-visible');
   };
 
   window.hideModalDialog = function hideModalDialog() {
-    const webflowModal = document.getElementById('webflowModal');
+    const webflowModal = document.getElementById('modalForager');
 
-    webflowModal.classList.remove('modal-visible');
+    webflowModal.classList.add('modal-fadeout');
+
+    setTimeout(() => {
+      webflowModal.classList.remove('modal-visible');
+      webflowModal.classList.remove('modal-fadeout');
+    }, 600);
   };
 
   window.submitAccessForm = function submitAccessForm(event) {
