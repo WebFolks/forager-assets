@@ -94,3 +94,11 @@ body * {
 h3.request-form__title {
   margin-top: 0 !important;
 }
+
+.displayNone {
+  display: none !important;
+}
+
+.displayBLock {
+  display: block !important;
+}

@@ -93,25 +93,25 @@
     const modalTemplate = `<div class="modal" id="webflowModal">
                             <div class="modal__bg" onclick="window.hideModalDialog()"></div>
                             <div class="modal__form w-form">
-                              <form id="email-form" name="email-form" data-name="Email Form" class="request-form" onsubmit="window.submitAccessForm()">
+                              <form id="email-form" name="email-form" data-name="Email Form" class="request-form" onsubmit="window.submitAccessForm(event)">
                                 <div class="request-form__header">
                                   <h3 class="request-form__title">Fill the form below to get <br>request access</h3>
                                 </div>
                                   <img onclick="window.hideModalDialog()" src="https://uploads-ssl.webflow.com/5f3ce7d38b0a42cbcba07bf6/5f3e5b971a9b6be0aa576f07_close-icon.svg" alt="" class="form-ic">
-                                  <input type="text" class="request-form__t-field w-input" maxlength="256" name="Name-2" data-name="Name 2" placeholder="Full Name" id="Name-2" required="">
-                                  <input type="email" class="request-form__t-field w-input" maxlength="256" name="Email-2" data-name="Email 2" placeholder="Email Address" id="Email-2" required="">
-                                  <input type="text" class="request-form__t-field w-input" maxlength="256" data-name="" placeholder="Company Name" id="node" required="">
-                                  <input type="text" class="request-form__t-field w-input" maxlength="256" data-name="" placeholder="Website URL" id="node-2" required="">
+                                  <input type="text" class="request-form__t-field w-input" maxlength="256" name="Name-2" data-name="Name 2" placeholder="Full Name" id="formName" required="">
+                                  <input type="email" class="request-form__t-field w-input" maxlength="256" name="Email-2" data-name="Email 2" placeholder="Email Address" id="formEmail" required="">
+                                  <input type="text" class="request-form__t-field w-input" maxlength="256" data-name="" placeholder="Company Name" id="formCompanyName" required="">
+                                  <input type="text" class="request-form__t-field w-input" maxlength="256" data-name="" placeholder="Website URL" id="formUrl" required="">
                                 <div class="request-form__btn">
-                                  <input type="submit" value="Request access" data-wait="Please wait..." class="btn btn--green width w-button">
+                                  <input type="submit" id="formSubmitButton" value="Request access" data-wait="Please wait..." class="btn btn--green width w-button">
                                 </div>
                               </form>
 
-                              <div class="w-form-done">
+                              <div class="w-form-done" id="w-form-done">
                                 <div>Thank you! Your submission has been received!</div>
                               </div>
 
-                              <div class="w-form-fail">
+                              <div class="w-form-fail" id="w-form-fail">
                                 <div>Oops! Something went wrong while submitting the form.</div>
                               </div>
                             </div>
@@ -140,9 +140,39 @@
     webflowModal.classList.remove('modal-visible');
   };
 
-  window.submitAccessForm = function submitAccessForm() {
-    this.preventDefault();
-    this.stopPropagation();
-    console.log('stopped');
+  window.submitAccessForm = function submitAccessForm(event) {
+    event.preventDefault();
+    event.stopPropagation();
+
+    const wFormDone = document.getElementById('w-form-done');
+    const wFormFail = document.getElementById('w-form-fail');
+    const formSubmitButton = document.getElementById('formSubmitButton');
+    const emailForm = document.getElementById('email-form');
+    const body = {
+      name: 'Email Form',
+      source: 'https://forager.apideck.com/',
+      test: false,
+      'fields[Name 2]': encodeURIComponent(document.getElementById('formName').value),
+      'fields[Email 2]': encodeURIComponent(document.getElementById('formEmail').value),
+      'fields[Field 3]': encodeURIComponent(document.getElementById('formCompanyName').value),
+      'fields[Field 4]': encodeURIComponent(document.getElementById('formUrl').value),
+      dolphin: false,
+    };
+    const url = encodeURIComponent('https://webflow.com/api/v1/form/5f3ce7d38b0a42cbcba07bf6');
+    const path = `https://cors-post-vlgutv.herokuapp.com?url=${url}&body=${JSON.stringify(body)}`;
+    const xhr = new XMLHttpRequest();
+
+    formSubmitButton.setAttribute('value', formSubmitButton.getAttribute('data-wait'));
+
+    xhr.open('GET', path);
+    xhr.send();
+    xhr.onload = function () {
+      if (xhr.status === 200 && xhr.readyState === 4 && xhr.response) {
+        emailForm.classList.add('displayNone');
+        wFormDone.classList.add('displayBlock');
+      } else {
+        wFormFail.classList.add('displayBlock');
+      }
+    };
   };
 })();
